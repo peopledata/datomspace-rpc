@@ -1,6 +1,6 @@
 {
   "name": "datomspace-rpc",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "raw rpc layer for datomspace",
   "main": "index.js",
   "scripts": {

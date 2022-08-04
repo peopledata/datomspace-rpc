@@ -684,7 +684,7 @@ module.exports = class HRPCSession extends HRPC {
       if ((err !== this.rawSocketError && !isStreamError(err)) || this.listenerCount('error')) this.emit('error', err)
     })
 
-    this.datomSpace = new HRPCServicedaromSpace(rpc)
+    this.datomSpace = new HRPCServicedatomSpace(rpc)
     this.corestore = new HRPCServiceCorestore(rpc)
     this.datom = new HRPCServicedatom(rpc)
     this.network = new HRPCServiceNetwork(rpc)
