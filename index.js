@@ -16,14 +16,14 @@ const errorEncoding = {
   }
 }
 
-class HRPCServiceHyperspace {
+class HRPCServicedatomSpace {
   constructor (rpc) {
     const service = rpc.defineService({ id: 1 })
 
     this._status = service.defineMethod({
       id: 1,
       requestEncoding: RPC.NULL,
-      responseEncoding: messages.HyperspaceStatusResponse
+      responseEncoding: messages.datomSpaceStatusResponse
     })
 
     this._stop = service.defineMethod({
@@ -94,7 +94,7 @@ class HRPCServiceCorestore {
   }
 }
 
-class HRPCServiceHypercore {
+class HRPCServicedatom {
   constructor (rpc) {
     const service = rpc.defineService({ id: 3 })
 
@@ -684,9 +684,9 @@ module.exports = class HRPCSession extends HRPC {
       if ((err !== this.rawSocketError && !isStreamError(err)) || this.listenerCount('error')) this.emit('error', err)
     })
 
-    this.hyperspace = new HRPCServiceHyperspace(rpc)
+    this.datomSpace = new HRPCServicedatomSpace(rpc)
     this.corestore = new HRPCServiceCorestore(rpc)
-    this.hypercore = new HRPCServiceHypercore(rpc)
+    this.datom = new HRPCServicedatom(rpc)
     this.network = new HRPCServiceNetwork(rpc)
   }
 

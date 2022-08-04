@@ -16,7 +16,7 @@ var Peer = exports.Peer = {
   decode: null
 }
 
-var HyperspaceStatusResponse = exports.HyperspaceStatusResponse = {
+var datomSpaceStatusResponse = exports.datomSpaceStatusResponse = {
   buffer: true,
   encodingLength: null,
   encode: null,
@@ -311,7 +311,7 @@ var RPCError = exports.RPCError = {
 }
 
 definePeer()
-defineHyperspaceStatusResponse()
+definedatomSpaceStatusResponse()
 defineOpenRequest()
 defineOpenResponse()
 defineFeedEvent()
@@ -438,10 +438,10 @@ function definePeer () {
   }
 }
 
-function defineHyperspaceStatusResponse () {
-  HyperspaceStatusResponse.encodingLength = encodingLength
-  HyperspaceStatusResponse.encode = encode
-  HyperspaceStatusResponse.decode = decode
+function definedatomSpaceStatusResponse () {
+  datomSpaceStatusResponse.encodingLength = encodingLength
+  datomSpaceStatusResponse.encode = encode
+  datomSpaceStatusResponse.decode = decode
 
   function encodingLength (obj) {
     var length = 0
