@@ -4,7 +4,7 @@
   "description": "raw rpc layer for datomspace",
   "main": "index.js",
   "scripts": {
-    "test": "standard",
+    "test": "standard --fix",
     "build": "hrpc schema.proto --rpc=index.js --messages=messages.js"
   },
   "devDependencies": {
