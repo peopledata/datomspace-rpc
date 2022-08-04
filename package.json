@@ -1,0 +1,27 @@
+{
+  "name": "datomspace-rpc",
+  "version": "1.0.0",
+  "description": "raw rpc layer for datomspace",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard",
+    "build": "hrpc schema.proto --rpc=index.js --messages=messages.js"
+  },
+  "devDependencies": {
+    "hrpc": "^2.1.1",
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "hrpc-runtime": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peopledata/datomspace-rpc.git"
+  },
+  "author": "jerry.zhang <jerry.zhang.bill@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peopledata/datomspace-rpc/issues"
+  },
+  "homepage": "https://github.com/peopledata/datomspace-rpc#readme"
+}
