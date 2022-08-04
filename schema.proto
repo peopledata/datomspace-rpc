@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-package hyperspace;
+package datomspace;
 import "hrpc.proto";
 
 // General Structs
@@ -10,8 +10,8 @@ message Peer {
   required string type = 3;
 }
 
-// Hyperspace Methods
-message HyperspaceStatusResponse {
+// datomSpace Methods
+message datomSpaceStatusResponse {
   required string apiVersion = 1;
   optional bool holepunchable = 2;
   optional string remoteAddress = 3;
@@ -87,7 +87,7 @@ message NetworkExtensionMessage {
   required bytes data = 4;
 }
 
-// Hypercore Methods
+// datom Methods
 
 message CloseRequest {
   required uint32 id = 1;
@@ -155,7 +155,7 @@ message DownloadRequest {
   optional uint64 end = 4;
   repeated uint64 blocks = 5;
   optional bool linear = 6;
-  optional bool live = 7; // ie no end (end = -1 in the hypercore api)
+  optional bool live = 7; // ie no end (end = -1 in the datom api)
 }
 
 message DownloadedRequest {
@@ -193,7 +193,7 @@ message UnwatchUploadsRequest {
   required uint64 id = 1;
 }
 
-// Hypercore Events
+// datom Events
 
 message AppendEvent {
   required uint64 id = 1;
@@ -248,11 +248,11 @@ message ExtensionMessage {
   required bytes data = 4;
 }
 
-service Hyperspace {
+service datomSpace {
   option (hrpc.service) = 1;
 
   // Methods
-  rpc Status (hrpc.Void) returns (HyperspaceStatusResponse) { option (hrpc.method) = 1; }
+  rpc Status (hrpc.Void) returns (datomSpaceStatusResponse) { option (hrpc.method) = 1; }
   rpc Stop (hrpc.Void) returns (hrpc.Void) { option (hrpc.method) = 2; }
 }
 
@@ -266,7 +266,7 @@ service Corestore {
   rpc OnFeed (FeedEvent) returns (hrpc.Void)  { option (hrpc.method) = 2; }
 }
 
-service Hypercore {
+service datom {
   option (hrpc.service) = 3;
 
    // Methods

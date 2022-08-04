@@ -23,7 +23,7 @@ class HRPCServicedatomSpace {
     this._status = service.defineMethod({
       id: 1,
       requestEncoding: RPC.NULL,
-      responseEncoding: messages.datomSpaceStatusResponse
+      responseEncoding: messages.daromSpaceStatusResponse
     })
 
     this._stop = service.defineMethod({
@@ -684,7 +684,7 @@ module.exports = class HRPCSession extends HRPC {
       if ((err !== this.rawSocketError && !isStreamError(err)) || this.listenerCount('error')) this.emit('error', err)
     })
 
-    this.datomSpace = new HRPCServicedatomSpace(rpc)
+    this.datomSpace = new HRPCServicedaromSpace(rpc)
     this.corestore = new HRPCServiceCorestore(rpc)
     this.datom = new HRPCServicedatom(rpc)
     this.network = new HRPCServiceNetwork(rpc)
@@ -696,5 +696,5 @@ module.exports = class HRPCSession extends HRPC {
 }
 
 function isStreamError (err) {
-  return err.message === 'Writable stream closed prematurely' || err.message === 'Readable stream closed before ending'
+  return err.message === 'Writable stream closed prematurely' || err.message === 'Readable stream closed prematurely'
 }
